@@ -9,19 +9,25 @@ let groceries = [
   { id: 3, name: "Bread" }
 ];
 
-const App = props => {
-  let groceryList = props.groceries.map((grocery) => {
-    return (
-      <li key={grocery.id}>{grocery.name}</li>
-    );
-  })
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div>
-      <h1>Grocery List!</h1>
-      {groceryList}
-    </div>
-  )
+  render() {
+    let groceryList = this.props.groceries.map((grocery) => {
+      return (
+        <li key={grocery.id}>{grocery.name}</li>
+      );
+    })
+
+    return(
+      <div>
+        <h1>Grocery List!</h1>
+        {groceryList}
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(
