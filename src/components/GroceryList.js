@@ -9,22 +9,18 @@ class GroceryList extends React.Component {
   }
 
   handleGroceryClick(id) {
-    this.setState({
-      selectedGroceryId: id
-    });
+    this.setState({ selectedGroceryId: id });
   }
 
   render() {
     let groceryList = this.props.groceries.map((grocery) => {
-      let selected = ""; // could also just be an empty string
+      let selected = "";
 
       if (grocery.id === this.state.selectedGroceryId) {
         selected = "SELECTED";
       }
 
-      let onGroceryClick = () => {
-        this.handleGroceryClick(grocery.id);
-      }
+      let onGroceryClick = () => this.handleGroceryClick(grocery.id);
 
       return (
         <Grocery
