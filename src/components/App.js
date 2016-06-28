@@ -1,17 +1,20 @@
 import React from 'react';
+import GroceryList from './GroceryList';
 
-const App = props => {
-  let groceryList = props.groceries.map((grocery) => {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     return (
-      <li key={grocery.id}>{grocery.name}</li>
-    );
-  })
-
-  return (
-    <div>
-      {groceryList}
-    </div>
-  )
+      <div>
+        <h1>Grocery List!</h1>
+        <GroceryList
+          groceries={this.props.groceries} />
+      </div>
+    )
+  }
 }
 
 export default App;
