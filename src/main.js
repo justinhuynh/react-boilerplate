@@ -9,19 +9,14 @@ let groceries = [
   { id: 3, name: "Bread" }
 ];
 
-const App = props => {
-  let groceryList = props.groceries.map((grocery) => {
-    return (
-      <li key={grocery.id}>{grocery.name}</li>
-    );
-  })
+var App = function(props) {
+  var groceryFunc = function(grocery) {
+    return <li key={grocery.id}>{grocery.name}</li>;
+  }
 
-  return (
-    <div>
-      <h1>Grocery List!</h1>
-      {groceryList}
-    </div>
-  )
+  var groceryList = props.groceries.map(groceryFunc);
+
+  return <div><h1>Grocery List!</h1>{groceryList}</div>;
 }
 
 ReactDOM.render(
